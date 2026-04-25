@@ -5107,30 +5107,7 @@ async function init(){
   // Inserisce dati demo SOLO se Firebase è raggiungibile ed è confermato vuoto
   // Se Firebase era offline (_rtdbAvailable=false), non toccare nulla —
   // i dati reali esistono su Firebase e verranno caricati alla prossima connessione
-  if (state.projects.length === 0 && _rtdbAvailable) {
-    const p1={id:uid(),name:'Lancio prodotto'},p2={id:uid(),name:'Sito web'};
-    state.projects=[p1,p2];state.activeProjectId=p1.id;
-    state.users=['Federico','Stefano','Lorenzo','Giulia','Marco'];
-    state.taskTypes=[
-      {id:uid(),name:'Feature',color:'#5b4be8'},
-      {id:uid(),name:'Bug',color:'#d93025'},
-      {id:uid(),name:'Design',color:'#c0287a'},
-      {id:uid(),name:'Marketing',color:'#c07800'},
-    ];
-    const t=today();
-    state.tasks=[
-      {id:uid(),projectId:p1.id,title:'Definire roadmap Q2',description:'Elencare milestone principali.',status:'done',assignee:'Federico',start:addDays(t,-14),due:addDays(t,-7)},
-      {id:uid(),projectId:p1.id,title:'Brief copywriter',description:'',status:'inprogress',assignee:'Stefano',start:addDays(t,-5),due:addDays(t,3)},
-      {id:uid(),projectId:p1.id,title:'Preparare deck investitori',description:'Slide deck 10 pagine per round seed.',status:'inprogress',assignee:'Lorenzo',start:addDays(t,-2),due:addDays(t,5)},
-      {id:uid(),projectId:p1.id,title:'Setup analytics',description:'',status:'todo',assignee:'',start:'',due:addDays(t,8)},
-      {id:uid(),projectId:p1.id,title:'Press release lancio',description:'',status:'todo',assignee:'Stefano',start:addDays(t,4),due:addDays(t,12)},
-      {id:uid(),projectId:p1.id,title:'Campagna social',description:'',status:'todo',assignee:'',start:addDays(t,6),due:addDays(t,18)},
-      {id:uid(),projectId:p2.id,title:'Design homepage',description:'',status:'inprogress',assignee:'Lorenzo',start:addDays(t,-3),due:addDays(t,4)},
-      {id:uid(),projectId:p2.id,title:'Sviluppo frontend',description:'',status:'todo',assignee:'Federico',start:addDays(t,5),due:addDays(t,20)},
-      {id:uid(),projectId:p2.id,title:'SEO on-page',description:'',status:'todo',assignee:'',start:'',due:''},
-    ];
-    save();
-  }
+  // Nessun dato demo — Firebase è la fonte di verità unica
   updateHeader();
   switchView(state.currentView||'list');
 }
